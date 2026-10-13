@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Build anonymized public index.html from followups data.json (open + watching only)."""
+"""Build public index.html from followups data.json (open + watching only)."""
 import json, re, html, datetime
 from zoneinfo import ZoneInfo
 SRC = "/home/box/agent-data/agents/f32cc9d9-7c0d-42a4-adb6-65ebf207fb81/followups-dashboard/data.json"
 OUT = "/workspace/meeting-todos/index.html"
-NAMES = {"Mark Patel":"M.P.","David Guinn":"D.G.","Patrick Guillory":"P.G.","Patrick":"P.G.",
- "Jay":"J.","Ben":"B.","Gabe":"G.","Nina":"N.","Brian":"B.","Christian":"C.","Mark":"M.",
- "Luke":"L.","Danny":"D.","David":"D."}
+NAMES = {}  # full names allowed per Patrick (Oct 13, 2026)
 def anon(s):
     if not s: return s
     s = str(s)
